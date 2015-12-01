@@ -10,7 +10,7 @@ class TestCase extends \PHPUnit_Framework_TestCase
      * Process tests or update code
      * @var boolean
      */
-    public static $processTest = true;
+    public static $processTest = false;
 
     /**
      * Create a new instance of a class
