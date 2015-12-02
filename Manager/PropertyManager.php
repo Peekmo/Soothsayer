@@ -26,4 +26,30 @@ class PropertyManager
         $this->name         = $name;
         $this->defaultValue = $defaultValue;
     }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getDeclaration()
+    {
+        return sprintf('private $%s;', $this->name);
+    }
+
+    public function getGetterSetter()
+    {
+        return sprintf('
+    public function get%1$s()
+    {
+        return $this->%2$s;
+    }
+
+    public function set%1$s($%2$s)
+    {
+        $this->%2$s = $%2$s;
+    }
+        ', ucfirst($this->name), $this->name
+        );
+    }
 }
