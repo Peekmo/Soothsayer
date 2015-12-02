@@ -52,7 +52,11 @@ class ClassManager
     private function getString()
     {
         $elements = explode('\\', $this->namespace);
-        array_shift($elements);
+
+        if ($elements[0] == '') {
+            array_shift($elements);
+        }
+
         $className = array_pop($elements);
 
         $parameters = '';
